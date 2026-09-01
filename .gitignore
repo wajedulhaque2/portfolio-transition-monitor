@@ -1,0 +1,15 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+portfolio_monitor.db
+*.db
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+*.egg-info/
+build/
+dist/
