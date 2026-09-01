@@ -1,0 +1,13 @@
+services:
+  monitor:
+    build: .
+    env_file: .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - portfolio_data:/data
+    environment:
+      DATABASE_URL: sqlite:////data/portfolio_monitor.db
+
+volumes:
+  portfolio_data:
