@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install development dependencies
+        run: pip install -e '.[dev]'
+
+      - name: Validate example configuration
+        run: portfolio-monitor validate-config
+
+      - name: Lint
+        run: ruff check app tests
+
+      - name: Type check
+        run: mypy app
+
+      - name: Test with coverage
+        run: pytest --cov=app --cov-report=term-missing
+
+      - name: Audit Python dependencies
+        run: python -m pip_audit
+
+      - name: Prove Trading 212 client has no HTTP write calls
+        shell: bash
+        run: |
+          if git grep -nE '\.(post|put|patch|delete)\(' -- app/trading212; then
+            echo 'Unexpected HTTP write call found in app/trading212'
+            exit 1
+          fi
+          echo 'Trading 212 integration remains GET-only'
+
+      - name: Build wheel
+        run: python -m pip wheel . --no-deps --wheel-dir dist
