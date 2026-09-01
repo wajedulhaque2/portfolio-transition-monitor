@@ -1,0 +1,11 @@
+# EXAMPLE THRESHOLDS ONLY — NOT INVESTMENT ADVICE.
+# Tune these values for your own assets and risk tolerance.
+# All values are decimal percentages: 0.06 = 6%.
+
+pullback:
+  GOOGL: {watch: 0.05, review: 0.08, strong: 0.12, abnormal_day: 0.12}
+  AMZN: {watch: 0.06, review: 0.09, strong: 0.14, abnormal_day: 0.14}
+
+trim:
+  AAPL: {watch: 0.06, review: 0.10, strong: 0.15}
+  MSFT: {watch: 0.06, review: 0.10, strong: 0.15}

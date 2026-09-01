@@ -1,0 +1,32 @@
+# EXAMPLE SYMBOL MAP — replace with the assets you actually monitor.
+# Trading 212 broker tickers vary by account/venue. Leave trading212 as null,
+# run `portfolio-monitor resolve-symbols`, review the output, then optionally
+# run `portfolio-monitor resolve-symbols --write`.
+
+AAPL:
+  trading212: null
+  twelve_data: AAPL
+  yahoo: AAPL
+  exchange: NASDAQ
+  currency: USD
+
+MSFT:
+  trading212: null
+  twelve_data: MSFT
+  yahoo: MSFT
+  exchange: NASDAQ
+  currency: USD
+
+GOOGL:
+  trading212: null
+  twelve_data: GOOGL
+  yahoo: GOOGL
+  exchange: NASDAQ
+  currency: USD
+
+AMZN:
+  trading212: null
+  twelve_data: AMZN
+  yahoo: AMZN
+  exchange: NASDAQ
+  currency: USD

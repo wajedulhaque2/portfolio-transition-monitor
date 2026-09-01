@@ -1,0 +1,43 @@
+# EXAMPLE CONFIGURATION ONLY — NOT INVESTMENT ADVICE.
+# Replace these targets and priorities with your own plan before using live data.
+# Current V1 accounting/alert labels assume a GBP Trading 212 account.
+
+account_currency: GBP
+hard_min_cash_gbp: 100
+desired_cash_pct: 0.10
+max_single_transition_pct: 0.015
+alert_cooldown_hours: 12
+alert_validity_hours: 4
+
+targets:
+  AAPL: 0.25
+  MSFT: 0.25
+  GOOGL: 0.20
+  AMZN: 0.20
+  CASH: 0.10
+
+# Optional logical sleeves. Example:
+# groups:
+#   MEGA_CAP: [AAPL, MSFT, GOOGL, AMZN]
+groups: {}
+
+# Optional preferred weights for components inside a group.
+soft_component_targets: {}
+
+# Optional quality ordering for components inside a group.
+quality_rank: {}
+
+# Human-readable intent. The current scoring engine is driven by targets,
+# thresholds and strategic_priority; these labels document your strategy.
+biases:
+  AAPL: TRIM
+  MSFT: TRIM
+  GOOGL: BUILD
+  AMZN: BUILD
+
+# Values are 0.0–1.0 and influence signal ranking.
+strategic_priority:
+  AAPL: 0.80
+  MSFT: 0.80
+  GOOGL: 1.00
+  AMZN: 0.95
